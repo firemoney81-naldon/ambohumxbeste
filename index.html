@@ -1,23 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <!-- Schema.org 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "만기환급형 암보험 비교센터",
+      "description": "만기환급형 암보험의 장단점, 보험료 비교, 추천 상품 및 가입 가이드를 제공합니다.",
+      "serviceType": "만기환급형 암보험",
+      "provider": {
+        "@type": "Organization",
+        "name": "보험 비교 전문 컨설팅"
+      },
+      "url": "https://www.example.com/refund-cancer-insurance",
+      "keywords": [
+        "만기환급형암보험", "순수보장형암보험", "비갱신형암보험", "암보험 장점", "암보험 단점", "암보험 추천", "암보험 순위", "암보험 비교", "보험료 저렴한곳", "내돈내산 후기"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.example.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <link rel="canonical" href="https://www.example.com/refund-cancer-insurance">
+
+    <!-- 외부 CSS/JS는 실제 운영 시 분리 및 minify -->
+    <style>
+      /* --- 기본 스타일 재설정 --- */
+      body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; background-color: #f9f9f9; }
+      header, section, footer { max-width: 1000px; margin: 20px auto; padding: 0 20px; box-sizing: border-box; }
+      h1, h2, h3, h4 { color: #2c3e50; line-height: 1.4; }
+      h1 { font-size: 2.5em; text-align: center; margin-bottom: 0.5em; color: #0078D7; }
+      h2 { font-size: 2em; margin-top: 1.5em; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+      h3 { font-size: 1.5em; margin-top: 1.2em; color: #34495e; }
+      p { margin-bottom: 1em; }
+
+      /* --- 내비게이션 및 CTA --- */
+      header { background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+      nav { margin-top: 15px; }
+      nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+      nav a { text-decoration: none; color: #0078D7; font-weight: bold; font-size: 1.1em; transition: color 0.3s; padding: 5px 10px; }
+      nav a:hover { color: #005a9e; background-color: #f0f8ff; border-radius: 4px; }
+      .cta-btn { display: inline-block; background: #0078D7; color: #fff; padding: 15px 25px; border-radius: 5px; text-decoration: none; font-size: 1.1em; font-weight: bold; text-align: center; transition: background 0.3s; margin-top: 20px; }
+      .cta-btn:hover { background: #005a9e; }
+
+      /* --- 섹션 스타일 --- */
+      section { background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin-bottom: 30px; }
+      section p strong { color: #0078D7; font-weight: bold; }
+      section ul { padding-left: 20px; }
+      section li { margin-bottom: 8px; }
+
+      /* --- 키워드 섹션 (Naver 자동완성/연관 검색어) --- */
+      .internal-links { background-color: #f7f7f7; padding: 25px; border-radius: 6px; margin-bottom: 30px; }
+      .internal-links h2 { border-bottom: 1px dashed #ddd; }
+      .internal-links ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+      .internal-links li { background-color: #fff; border: 1px solid #ddd; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; transition: background 0.3s; }
+      .internal-links a { text-decoration: none; color: #555; font-weight: normal; }
+      .internal-links li:hover { background-color: #f0f8ff; }
+
+      /* --- 비교 테이블 및 그래프 --- */
+      table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95em; }
+      table th, table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+      table th { background-color: #f5f5f5; font-weight: bold; color: #444; }
+      table tr:nth-child(even) { background-color: #fafafa; }
+
+      /* --- 강조 박스 --- */
+      .highlight-box { background-color: #f0f8ff; padding: 20px; border-left: 5px solid #0078D7; border-radius: 4px; margin: 20px 0; font-size: 1.1em; line-height: 1.6; }
+      .highlight-box strong { color: #005a9e; }
+
+      /* --- FAQ 섹션 --- */
+      .faq .item { margin-bottom: 20px; border: 1px solid #eee; padding: 15px; border-radius: 4px; background-color: #fff; }
+      .faq h3 { cursor: pointer; color: #2c3e50; font-size: 1.2em; margin: 0; padding-bottom: 5px; border-bottom: 1px solid #f0f0f0; }
+      .faq .content { display: block; padding-top: 10px; font-size: 1em; color: #555; }
+
+      /* --- 연락처 및 폼 --- */
+      #contact { background-color: #f0f8ff; border-top: 3px solid #0078D7; padding: 40px; }
+      #contact h2 { text-align: center; color: #0078D7; margin-bottom: 20px; border-bottom: none; }
+      #contact form { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+      #contact form label { display: block; font-weight: bold; color: #333; margin-bottom: 5px; }
+      #contact form input[type="text"], #contact form input[type="tel"], #contact form textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1em; }
+      #contact form button { background: #2ecc71; color: #fff; padding: 15px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: background 0.3s; }
+      #contact form button:hover { background: #27ae60; }
+
+      /* --- 푸터 --- */
+      footer { background-color: #333; color: #eee; text-align: center; padding: 20px; margin-top: 0; }
+
+      /* --- 반응형 디자인 --- */
+      @media (max-width: 768px) {
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.3em; }
+        header, section, footer { padding: 0 15px; }
+        nav ul { flex-direction: column; gap: 10px; text-align: center; }
+        .internal-links ul { flex-direction: column; }
+        table th, table td { padding: 8px; font-size: 0.9em; }
+      }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 및 내비 -->
+    <header>
+        <h1>만기환급형 암보험 완벽 가이드</h1>
+        <p>환급금과 보장 중 무엇이 중요할까요? 2026년 가입 트렌드를 분석한 <strong>만기환급형 암보험</strong> 및 <strong>순수보장형 암보험</strong> 장단점 비교, 보험료 절약 팁, 가입 추천 순위 정보를 제공합니다.</p>
+        <nav>
+            <ul>
+                <li><a href="#definition">만기환급형이란?</a></li>
+                <li><a href="#compare">순수보장형 vs 환급형 비교</a></li>
+                <li><a href="#strategy">가입 전략 및 추천</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">무료 견적 상담</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 자동완성 반영 문구 -->
+    <section class="internal-links">
+        <h2>"만기환급형 암보험" 자동완성 및 연관 키워드 분석</h2>
+        <p>네이버 검색 사용자들이 <strong>암보험</strong> 가입 시 함께 많이 찾는 주요 키워드입니다. 이 키워드를 통해 보험 선택의 핵심 포인트를 파악할 수 있습니다.</p>
+        <ul>
+            <li><a href="#compare">만기환급형 암보험 순수보장형 차이점</a></li>
+            <li><a href="#cost">만기환급형 암보험 장단점</a></li>
+            <li><a href="#recommend">만기환급형 암보험 추천</a></li>
+            <li><a href="#nonrenewal">비갱신형 만기환급형 암보험</a></li>
+            <li><a href="#compare">암보험 순위 비교</a></li>
+            <li><a href="#cost">만기환급형 암보험 예상 금액</a></li>
+            <li><a href="#cost">만기환급형 암보험 저렴한곳</a></li>
+            <li><a href="#strategy">암보험 내돈내산 후기</a></li>
+            <li><a href="#cost">암보험 가입 평균 금액</a></li>
+            <li><a href="#strategy">암보험 가입 시 고려사항</a></li>
+            <li><a href="#strategy">갱신형 vs 비갱신형 차이점</a></li>
+            <li><a href="#coverage">소액암 보장 범위</a></li>
+        </ul>
+    </section>
+
+    <!-- 핵심 컨텐츠 - 만기환급형 정의 및 장단점 분석 -->
+    <section id="definition">
+        <h2>만기환급형 암보험이란 무엇인가요?</h2>
+        <div class="highlight-box">
+            <p><strong>만기환급형 암보험</strong>은 보험 가입 기간이 끝나는 <strong>만기 시점에 납입한 보험료의 일부 또는 전부를 돌려받는 구조</strong>의 상품입니다. 보장 혜택과 더불어 만기 환급금이라는 목돈 마련의 기회를 얻을 수 있다는 <strong>장점</strong>이 있습니다.</p>
+            <p>하지만, 순수보장형보다 <strong>매월 납입해야 하는 보험료가 비싸다는 단점</strong>이 있습니다. 환급금을 돌려받는 것은 단순히 납입했던 금액을 돌려받는 것이 아니라, 보험사가 고객에게 받은 보험료를 운용하여 발생한 이자 수익이 포함된 금액입니다. 따라서 <strong>만기환급금 예상 금액</strong>을 꼼꼼히 따져보고 가입하는 것이 중요합니다.</p>
+        </div>
+
+        <h3>만기환급형의 두 가지 형태: 부분환급형 vs. 순수환급형</h3>
+        <p>엄밀히 말해 만기환급형은 크게 두 가지로 나뉩니다. <strong>순수보장형</strong>은 해지 시 환급금이 전혀 없지만 보험료가 가장 저렴하고, <strong>만기환급형</strong>은 만기 시 환급금이 존재합니다. 일부 상품 중에서는 중도에 해지해도 어느 정도 환급금을 돌려주는 '부분환급형'이나, 만기 시점에 낸 보험료 전체를 돌려주는 '순수환급형'이 있습니다.</p>
+        <p><strong>만기환급금</strong>을 노리고 가입하는 경우가 많지만, 이 환급금은 보험사별, 상품별로 <strong>차이점</strong>이 크며, 2026년 현재 금리 환경 변화에 따라 과거보다 환급률이 낮아지는 추세입니다. 따라서 환급금보다는 <strong>보장 내용</strong>에 중점을 두고 가입하는 것이 현명합니다.</p>
+
+        <h3>만기환급금 계산 시나리오 (예시)</h3>
+        <p>만기환급형 보험료는 일반적인 순수보장형 보험료에 <strong>환급금 재원</strong>을 위한 추가 적립 보험료가 합산되어 책정됩니다. 예를 들어, 순수보장형이 월 5만원이라면 만기환급형은 월 8만원이 될 수 있습니다. 납입한 8만원 중 보장 비용 5만원을 제외한 3만원이 적립되는 방식입니다.</p>
+        <p><strong>[시뮬레이션]</strong> 40세 남성이 20년 납, 80세 만기 상품에 가입 시 (납입 기간 20년) <strong>총 납입 금액</strong>과 <strong>만기 시 환급금</strong> 비교:</p>
+        <table border="1">
+            <tr><th>구분</th><th>납입 기간 (20년) 총 납입 보험료 (월 10만원 가정)</th><th>80세 만기 시 환급금 (예상)</th></tr>
+            <tr><td>순수보장형</td><td>24,000,000원</td><td>0원</td></tr>
+            <tr><td>만기환급형</td><td>30,000,000원</td><td>15,000,000원 ~ 20,000,000원</td></tr>
+        </table>
+        <p>※ 위 수치는 가상의 <strong>예상 금액</strong>이며, 실제 <strong>평균 금액</strong>은 상품의 약관, 예정 이율, 사업비 등에 따라 크게 달라질 수 있습니다. 만기환급금이 100% 보장되는 것이 아니라는 점을 유의해야 합니다.</p>
+    </section>
+
+    <!-- 핵심 컨텐츠 - 순수보장형 vs 환급형 비교 -->
+    <section id="compare">
+        <h2>순수보장형 암보험 vs. 만기환급형 암보험 상세 비교 분석</h2>
+        <p>암보험을 <strong>저렴한곳</strong>에서 찾으려는 분들은 순수보장형을 선호하고, 목돈 마련을 원하는 분들은 환급형을 선호합니다. 이 두 가지 유형의 <strong>장단점</strong>을 명확히 비교해 보겠습니다.</p>
+
+        <h3>1. 보험료 측면: 누가 더 <strong>싼곳</strong>일까?</h3>
+        <p>보험료만 놓고 본다면, <strong>순수보장형</strong>이 <strong>만기환급형</strong>보다 훨씬 <strong>저렴한</strong> 편입니다. 만기환급형은 적립 보험료가 포함되어 있어 월 납입액이 20~30% 가량 더 높습니다. 따라서 당장의 경제적 부담을 줄이고 싶다면 순수보장형이 합리적인 선택입니다.</p>
+
+        <h3>2. 환급금 측면: 만기환급금의 실질 가치</h3>
+        <p>만기환급금은 물가 상승률을 고려해야 합니다. 20년 전에 냈던 100만원과 20년 후의 100만원은 가치가 다릅니다. 만기환급형 보험을 가입하면서 납입한 추가 보험료를 차라리 다른 곳에 투자하거나 저축했다면 더 큰 수익을 얻을 수 있었을 수도 있습니다. <strong>장단점</strong>을 따져보고, 개인의 투자 성향에 따라 선택해야 합니다.</p>
+
+        <h3>3. 해지환급금 및 중도해지 리스크</h3>
+        <p>만기환급형 암보험의 <strong>단점</strong> 중 하나는 중도 해지 시 <strong>해지환급금</strong>이 원금보다 적을 수 있다는 점입니다. 특히 납입 초기에는 해지환급금이 없거나 매우 적어 손해를 볼 수 있습니다. 반면 순수보장형은 해지환급금이 없기 때문에 중도 해지 시 손해를 보더라도 보험료 자체는 저렴하게 유지했다는 <strong>장점</strong>이 있습니다.</p>
+
+        <table border="1">
+            <tr><th colspan="3">암보험 유형별 상세 비교</th></tr>
+            <tr><th>구분</th><th>순수보장형 암보험</th><th>만기환급형 암보험</th></tr>
+            <tr><td>보험료</td><td><strong>저렴한</strong> 편 (낮음)</td><td><strong>비싼</strong> 편 (높음)</td></tr>
+            <tr><td>만기환급금</td><td>없음 (0원)</td><td>있음 (납입액의 일부 환급)</td></tr>
+            <tr><td>해지환급금</td><td>없음 (0원)</td><td>있으나 원금 손실 가능성 높음</td></tr>
+            <tr><td>적합 대상</td><td>보험료 부담을 최소화하려는 사람</td><td>만기 환급금으로 목돈 마련을 원하는 사람</td></tr>
+            <tr><td>가입 전략</td><td>보장 기간을 길게 가져가는 것이 유리</td><td>장기간 유지할 수 있는 여유 자금 필요</td></tr>
+        </table>
+    </section>
+
+    <!-- 핵심 컨텐츠 - 가입 전략 및 2026 추천 포인트 -->
+    <section id="strategy">
+        <h2>2026년 암보험 가입 전략: 비갱신형 만기환급형 추천 vs. 순위</h2>
+        <p>암보험을 <strong>추천</strong>할 때 가장 중요한 요소는 <strong>비갱신형</strong> 여부와 <strong>보장 범위</strong>입니다. 특히 2026년 현재는 의료기술 발달로 암 생존율이 높아지고 있지만, 치료 비용은 증가하고 있습니다. 따라서 든든한 보장을 받는 것이 중요합니다.</p>
+
+        <h3>1. 갱신형 vs. 비갱신형: 보험료 안정성</h3>
+        <p><strong>비갱신형 암보험</strong>은 가입 시점부터 만기 시까지 보험료 변동이 없는 상품입니다. 반면 <strong>갱신형</strong>은 일정 기간(1년, 3년, 5년 등)마다 보험료가 갱신되어 나이가 들수록 보험료가 급격히 인상될 수 있습니다. <strong>장단점</strong>이 명확하므로 <strong>차이점</strong>을 이해하고 선택해야 합니다.</p>
+        <div class="highlight-box">
+            <h4>비갱신형 만기환급형을 추천하는 이유 (2026년 트렌드)</h4>
+            <p><strong>만기환급형</strong>이면서 <strong>비갱신형</strong>인 상품은 보험료가 더 높지만, 납입 기간 동안 확정된 보험료를 내면서 만기 시 환급금까지 보장받을 수 있어 미래의 보험료 인상 리스크를 완전히 제거할 수 있습니다. <strong>내돈내산 후기</strong>를 보면 비갱신형을 선택한 고객들의 만족도가 높은 편입니다.</p>
+        </div>
+
+        <h3>2. 보장 범위 분석: 소액암, 재발암, 전이암</h3>
+        <p>최근 <strong>암보험</strong>은 일반암 외에 <strong>소액암</strong> (갑상선암, 유방암 등) 보장 한도 축소 추세입니다. 따라서 <strong>가입</strong> 시 소액암 보장 한도가 충분한지 확인해야 합니다. 또한 재발암, 전이암, 2차암 보장 특약도 중요한 <strong>가입</strong> 고려사항입니다. 암 경험자도 가입할 수 있는 유병력자 암보험도 있습니다.</p>
+
+        <h3>3. 보험료 절약을 위한 팁: 가입 전 필수 확인사항</h3>
+        <ul>
+            <li><strong>납입 기간과 보장 기간 설정:</strong> 납입 기간을 길게 가져가면 월 보험료가 줄지만 총 납입액은 늘어납니다. 보장 기간은 100세 만기를 추천합니다.</li>
+            <li><strong>무해지환급형 상품 고려:</strong> <strong>만기환급형</strong>의 대안으로 '무해지환급형' 상품이 있습니다. 납입 기간 중 해지 시 환급금이 없지만 보험료가 <strong>저렴</strong>하며, 만기 시 환급금이 있습니다.</li>
+            <li><strong>보험 비교사이트 이용:</strong> 여러 보험사의 상품을 <strong>순위</strong>나 <strong>추천</strong> 기준으로 비교하여 <strong>가장 저렴한곳</strong>을 찾는 것이 중요합니다.</li>
+        </ul>
+
+        <p><strong>"함께 많이 찾는" 키워드:</strong> 암보험 비교사이트, 암보험 순위, 3대 질병 보험, 유병자 암보험, 여성 암보험, 20대 암보험, 50대 암보험 <strong>평균 금액</strong>, <strong>예상 비용</strong>, 암보험 <strong>얼마</strong>, <strong>차이점</strong></p>
+
+        <h3>[2026년 통계] 암 발생률 및 치료 비용 동향</h3>
+        <p>보건복지부와 중앙암등록본부의 2026년 최신 자료에 따르면, 암은 여전히 한국인의 주요 사망 원인 1위입니다. 2026년 기준 암 환자 1인당 평균 치료 비용은 계속해서 증가하고 있으며, 특히 표적 항암제 등 신약 치료 시 비용 부담이 매우 높습니다. <strong>만기환급금</strong>을 노리기보다 <strong>보장 금액</strong>을 높게 설정하는 것이 현명한 <strong>가입</strong> 전략으로 떠오르고 있습니다.</p>
+
+        <p><strong>[외부사이트 참조]</strong></p>
+        <ul>
+            <li><a href="https://www.cancer.go.kr/">국가암정보센터 (NCIS)</a>: 암 통계 및 치료 정보</li>
+            <li><a href="https://www.fss.or.kr/">금융감독원 (FSS)</a>: 보험 정보 및 분쟁 해결 가이드</li>
+            <li><a href="https://namu.wiki/w/%EC%95%94%EB%B3%B4%ED%97%98">나무위키 - 암보험</a>: 암보험 관련 일반 정보 및 용어 설명</li>
+        </ul>
+    </section>
+
+    <!-- 핵심 컨텐츠 - 보장 범위 상세 설명 및 체크리스트 -->
+    <section id="coverage">
+        <h2>암보험 보장 범위 핵심 체크리스트</h2>
+        <p><strong>만기환급형 암보험</strong>을 선택하든 순수보장형을 선택하든, 보장 내용이 가장 중요합니다. <strong>내돈내산</strong>으로 후회 없는 선택을 하려면 다음 <strong>차이점</strong>을 반드시 확인해야 합니다.</p>
+
+        <h3>1. 진단금 보장: 높게 설정할수록 유리</h3>
+        <p>암보험의 핵심은 진단금입니다. 진단금이 높아야 치료에 전념할 수 있습니다. <strong>평균</strong> 진단금은 3천만원에서 5천만원 수준이지만, 고액암의 경우 1억 원 이상을 추천합니다.</p>
+
+        <h3>2. 소액암 및 유사암 보장 범위 (2026년 개정 사항)</h3>
+        <p>갑상선암, 기타피부암, 경계성종양, 제자리암 등은 일반암 진단금의 10~20%만 지급하는 경우가 많습니다. <strong>2026년</strong> 기준으로 이 보장 한도가 더욱 줄어드는 추세이므로, <strong>가입</strong> 시 소액암 보장 한도를 높게 설정할 수 있는지 확인해야 합니다.</p>
+
+        <h3>3. 재진단암 및 전이암 보장</h3>
+        <p>암 치료 후 5년 이내 재발하는 경우가 많습니다. 재발암 보장은 필수 특약입니다. 특히 <strong>전이암</strong>의 경우 치료 비용이 더 높을 수 있으므로 <strong>장점</strong>이 명확한 재진단암 특약을 추가하는 것을 <strong>추천</strong>합니다.</p>
+
+        <h3>4. 면책기간 및 감액기간</h3>
+        <p>암보험에는 <strong>면책기간(90일)</strong>이 있습니다. 가입 후 90일 이내에 암 진단 시 보험금을 받을 수 없습니다. 또한 1년 또는 2년 이내 암 진단 시 보험금의 50%만 지급되는 <strong>감액기간</strong>도 있습니다. <strong>가입</strong> 시 이 <strong>단점</strong>을 반드시 확인하고 준비해야 합니다.</p>
+    </section>
+
+    <!-- FAQ 섹션 -->
+    <section id="faq" class="faq">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+
+        <div class="item">
+            <h3>Q1: <strong>만기환급형 암보험</strong>을 가입했는데, <strong>중도 해지</strong>하면 환급금을 받을 수 있나요?</h3>
+            <div class="content">
+                <p>A: <strong>만기환급형</strong>이라도 <strong>해지환급금</strong>은 납입 기간과 시점에 따라 달라집니다. 특히 가입 초기에 해지하면 납입한 보험료보다 훨씬 적은 금액을 돌려받거나, 아예 못 받는 경우도 있습니다. <strong>순수보장형</strong>은 해지 시 환급금이 없지만 보험료가 <strong>저렴</strong>하다는 <strong>장점</strong>이 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>Q2: <strong>비갱신형</strong>과 <strong>갱신형</strong> 중 어떤 것을 <strong>추천</strong>하나요?</h3>
+            <div class="content">
+                <p>A: <strong>비갱신형</strong>을 <strong>추천</strong>합니다. <strong>갱신형</strong>은 초기 보험료가 <strong>저렴</strong>하다는 <strong>장점</strong>이 있지만, 나이가 들수록 보험료가 급격히 인상되어 전체 납입 <strong>금액</strong>이 더 커질 수 있습니다. 특히 <strong>만기환급형</strong>과 <strong>비갱신형</strong>을 결합하면 안정적인 납입이 가능합니다.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>Q3: <strong>만기환급형 암보험</strong>이 <strong>순수보장형</strong>보다 무조건 좋은가요?</h3>
+            <div class="content">
+                <p>A: 그렇지 않습니다. <strong>만기환급형</strong>은 <strong>장점</strong>이 있지만, <strong>순수보장형</strong>보다 보험료가 <strong>비싼 단점</strong>이 있습니다. <strong>만기환급금 예상 금액</strong>을 위해 추가로 납입하는 보험료를 다른 곳에 투자하거나 <strong>저렴한</strong> 순수보장형으로 가입하고 보장을 높이는 것이 더 합리적인 선택일 수 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>Q4: <strong>내돈내산 후기</strong>를 보면 어떤 <strong>순위</strong> 상품을 선택해야 할까요?</h3>
+            <div class="content">
+                <p>A: <strong>순위</strong>나 <strong>추천</strong> 상품에만 의존하기보다, 개인의 나이, 병력, 재정 상황에 맞춰 보장 범위를 설정하는 것이 중요합니다. <strong>보험료 비교사이트</strong>를 통해 여러 상품의 <strong>장단점</strong>과 <strong>차이점</strong>을 비교해보는 것이 가장 현명한 방법입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 및 상담 신청 -->
+    <section id="contact">
+        <h2>무료 보험 견적 및 맞춤 상담 신청</h2>
+        <p>나에게 맞는 <strong>만기환급형 암보험</strong>을 찾으려면 전문 컨설턴트와의 상담이 필수입니다. <strong>예상 비용</strong>, <strong>평균 금액</strong>, <strong>가장 저렴한곳</strong> 등 궁금한 점을 문의하시면 맞춤형 <strong>가입</strong> 전략을 세워드립니다.</p>
+        <form action="/submit-quote" method="post">
+            <p><label for="name">이름</label><br><input type="text" id="name" name="name" required></p>
+            <p><label for="phone">연락처</label><br><input type="tel" id="phone" name="phone" required></p>
+            <p><label for="age">나이</label><br><input type="text" id="age" name="age" required></p>
+            <p><label for="coverage_type">희망 보장 유형</label><br>
+                <select id="coverage_type" name="coverage_type">
+                    <option value="refund">만기환급형</option>
+                    <option value="pure">순수보장형</option>
+                    <option value="not_decided">결정 못 함</option>
+                </select>
+            </p>
+            <p><label for="details">상담 희망 내용</label><br><textarea id="details" name="details" rows="3" required></textarea></p>
+            <button type="submit" class="cta-btn">무료 견적 요청하기</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px;">📞 전화 문의: <a href="tel:000-0000-0000" class="cta-btn">000-0000-0000</a></p>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026 보험 비교 전문 컨설팅. 모든 권리 보유. | 광고심의필 : XXXX-XXXX</p>
+        <p>고지사항: 본 페이지는 특정 보험 상품을 추천하는 것이 아니며, 정보 제공을 목적으로 합니다. 정확한 <strong>보험료</strong> 및 <strong>환급금</strong> 정보는 반드시 약관을 통해 확인하시기 바랍니다. <strong>내돈내산</strong> 결정은 신중하게 하십시오.</p>
+    </footer>
+
+    <!-- 자바스크립트 (FAQ 토글 기능) -->
+    <script>
+        document.querySelectorAll('.faq .item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const content = item.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
+
+  
